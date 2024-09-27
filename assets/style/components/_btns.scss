@@ -1,0 +1,11 @@
+@use "./assets/style/utils/mixin" as m;
+
+.text-link {
+    transition: color 0.3s ease;
+
+    @include m.hover {
+        &:hover {
+            color: var(--text-accent);
+        }
+    }
+}

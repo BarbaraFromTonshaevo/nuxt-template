@@ -1,0 +1,27 @@
+[
+    {
+        "id": 0,
+        "text": "Направления",
+        "url": "/directions"
+    },
+    {
+        "id": 1,
+        "text": "Производители",
+        "url": "/producers"
+    },
+    {
+        "id": 2,
+        "text": "Программы",
+        "url": "/programms"
+    },
+    {
+        "id": 3,
+        "text": "О компании",
+        "url": "/about"
+    },
+    {
+        "id": 4,
+        "text": "Контакты",
+        "url": "/contacts"
+    }
+]

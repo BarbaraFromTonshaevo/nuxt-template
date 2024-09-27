@@ -1,0 +1,37 @@
+<svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <g id="Bruger">
+        <rect
+            id="Rectangle 25"
+            x="10"
+            y="13"
+            width="20"
+            height="2"
+            rx="1"
+            fill="white"
+        />
+        <rect
+            id="Rectangle 28"
+            x="10"
+            y="19"
+            width="20"
+            height="2"
+            rx="1"
+            fill="white"
+        />
+        <rect
+            id="Rectangle 29"
+            x="10"
+            y="25"
+            width="20"
+            height="2"
+            rx="1"
+            fill="white"
+        />
+    </g>
+</svg>

@@ -1,0 +1,23 @@
+@use "../utils/mixin" as m;
+
+.text-xl {
+    font-size: 20px;
+}
+
+.text-m {
+    font-size: 16px;
+}
+
+.text-s {
+    font-size: 14px;
+}
+
+@include m.tablet {
+    .text-xl {
+        font-size: 18px;
+    }
+
+    .text-s {
+        font-size: 12px;
+    }
+}
