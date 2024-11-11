@@ -96,6 +96,7 @@ export default defineNuxtConfig({
 			preprocessorOptions: {
 				scss: {
 					additionalData: '@use "assets/style/utils/_mixin" as *;',
+					silenceDeprecations: ['legacy-js-api'],
 				},
 			},
 		},

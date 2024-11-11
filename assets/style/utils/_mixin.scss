@@ -1,10 +1,10 @@
-@mixin desctop-xl {
+@mixin desktop-xl {
     @media (max-width: 1740px) {
         @content;
     }
 }
 
-@mixin desctop {
+@mixin desktop {
     @media (max-width: 1640px) {
         @content;
     }

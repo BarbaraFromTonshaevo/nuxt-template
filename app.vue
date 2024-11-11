@@ -28,5 +28,5 @@ onMounted(() => {
 @use "assets/style/components/container";
 @use "assets/style/components/title";
 @use "assets/style/components/text";
-@use "assets/style/components/btns";
+@use "assets/style/components/section";
 </style>

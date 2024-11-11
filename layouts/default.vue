@@ -1,8 +1,8 @@
 <template>
     <div class="default-layout">
-        <Header :class="{hide: isHeaderVisible===false}"/>
+        <HeaderBlock :class="{hide: isHeaderVisible===false}"/>
         <slot />
-        <Footer />
+        <FooterBlock />
     </div>
 </template>
 

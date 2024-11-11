@@ -1,9 +1,9 @@
 <template>
     <div>
-        <Header :class="{hide: isHeaderVisible===false}"/>
+        <HeaderBlock :class="{hide: isHeaderVisible===false}"/>
         <div ref="scroller" class="scroller" >
             <slot />
-            <Footer />
+            <FooterBlock />
         </div>
     </div>
 </template>

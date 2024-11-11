@@ -222,6 +222,7 @@ onMounted(() => {
         table.value.parentNode.insertBefore(tableWrap, table.value);
         tableWrap.appendChild(table.value);
     }
+    console.log('hehe');
 })
 </script>
 

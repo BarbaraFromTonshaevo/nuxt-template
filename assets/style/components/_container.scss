@@ -1,24 +1,20 @@
 @use "../utils/mixin" as m;
 
 .container {
-    margin: 0 auto;
-
-    &--xl {
-        max-width: 1920px;
-        padding: 0 65px;
-    }
+	margin: 0 auto;
+	max-width: 1920px;
+	width: 100%;
+	padding: 0 80px;
 }
 
-@include m.desctop {
-    .container {
-        &--xl {
-            padding: 0 20px;
-        }
-    }
+@include m.laptop {
+	.container {
+	    padding: 0 40px;
+	}
 }
 
 @include m.tablet {
-    .container {
-        padding: 0 20px;
-    }
+	.container {
+		padding: 0 20px;
+	}
 }

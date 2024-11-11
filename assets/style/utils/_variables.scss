@@ -1,6 +1,28 @@
 @use "mixin" as m;
 
 :root {
+    --btn-prim-bg: #CB2D2D;
+    --btn-prim-text: #FFFFFF;
+    --btn-prim-border: #CB2D2D;
+    --btn-prim-icon: #FFFFFF;
+
+    --btn-prim-bg-hover: #A30505;
+    --btn-prim-text-hover: #FFFFFF;
+    --btn-prim-border-hover: #A30505;
+    --btn-prim-icon-hover: #FFFFFF; 
+
+    --btn-prim-bg-focus: #CB2D2D;
+    --btn-prim-text-focus: #FFFFFF;
+    --btn-prim-border-focus: #CB2D2D;
+    --btn-prim-icon-focus: #FFFFFF; 
+
+    --btn-prim-bg-disabled: #EFEFEF;
+    --btn-prim-text-disabled: #818181;
+    --btn-prim-border-disabled: #EFEFEF;
+    --btn-prim-icon-disabled: #818181; 
+
+
+
     --text-primary: #303239;
     --text-secondary: #595B61;
     --text-additional: #C5C5C5;
@@ -44,6 +66,7 @@
     --title-offset-m: 60px;
 
     --header-height: 104px;
+    --header-index: 2;
 }
 
 @include m.laptop {

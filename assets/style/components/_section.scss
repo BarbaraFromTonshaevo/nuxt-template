@@ -1,0 +1,45 @@
+@use "./assets/style/utils/mixin" as m;
+.section{
+    &-mb{
+        margin-bottom: 180px;
+    }
+    &-subtitle{
+        width: 100%;
+        border-bottom: 1px solid var(--stroke-primary);
+        color: var(--text-accent);
+        padding-bottom: 20px;
+        font: 400 18px var(--font-title);
+        margin-bottom: 80px;
+    }
+    &-title{
+        margin-bottom: 60px;
+    }
+}
+@include m.tablet{    
+    .section{
+        &-mb{
+            margin-bottom: 80px;
+        }
+        &-subtitle{
+            margin-bottom: 60px;
+        }
+        &-title{
+            margin-bottom: 40px;
+        }
+    }
+}
+@include m.tablet-s{    
+    .section{
+        &-mb{
+            margin-bottom: 80px;
+        }
+        &-subtitle{
+            font-size: 14px;
+            padding-bottom: 6px;
+            margin-bottom: 40px;
+        }
+        &-title{
+            margin-bottom: 32px;
+        }
+    }
+}
