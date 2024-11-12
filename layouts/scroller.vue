@@ -2,7 +2,9 @@
     <div>
         <HeaderBlock :class="{hide: isHeaderVisible===false}"/>
         <div ref="scroller" class="scroller" >
-            <slot />
+            <main class="main">
+                <slot />
+            </main>
             <FooterBlock />
         </div>
     </div>
@@ -105,17 +107,20 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .scroller {
-	padding-top: calc(var(--header-height) + 80px);
+	padding-top: calc(var(--header-height) + var(--header-main-gap));
     height: 100vh;
     overflow: hidden;
 }
+.main{
+    min-height: calc(100vh - var(--header-height) - var(--header-main-gap))
+}
 </style>
 
-<style>
+<style lang="scss">
 .scrollbar-track-x {
     display: none !important;
 }
 .scrollbar-track {
-    z-index: 2 !important;
+    z-index: calc(var(--header-index) + 1) !important;
 }
 </style>

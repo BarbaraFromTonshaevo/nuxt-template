@@ -1,10 +1,10 @@
 <template>
     <div class="popup" :class="{ active: props.state }">
-      <div class="popup__bg" @click="closePopup"></div>
+      <div class="popup__bg" @click="closePopup"/>
       <div class="popup__window">
         <button class="popup__close" @click="closePopup">
           <svg>
-            <use xlink:href="/icons/sprite.svg#close"></use>
+            <use xlink:href="/icons/sprite.svg#close"/>
           </svg>
         </button>
         <slot />

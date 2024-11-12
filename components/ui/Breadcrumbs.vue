@@ -2,9 +2,9 @@
   <div class="breadcrumbs">
     <ul class="breadcrumbs__list">
       <li
-        class="breadcrumbs__item"
         v-for="(item, index) in breadcrumbs"
         :key="item.text"
+        class="breadcrumbs__item"
       >
         <NuxtLink
           :to="item.url"

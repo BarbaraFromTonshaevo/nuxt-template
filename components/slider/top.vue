@@ -1,6 +1,6 @@
 <template>
   <div class="slider__top">
-    <h3 class="slider__title" v-if="title" :class="`title-${titleSize}`">{{ title }}</h3>
+    <h3 v-if="title" class="slider__title" :class="`title-${titleSize}`">{{ title }}</h3>
     <div class="slider__control">
       <ButtonIcon class="slider__btn slider__btn--prev" sprite="arrow" />
       <ButtonIcon class="slider__btn slider__btn--next" sprite="arrow" />
@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: false,

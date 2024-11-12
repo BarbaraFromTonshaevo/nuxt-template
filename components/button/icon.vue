@@ -1,23 +1,23 @@
 <template>
   <a
+    v-if="mode === 'link'"
     :href="url"
     class="btn-icon"
     :class="{ 'btn-icon--dark': isDark }"
-    v-if="mode === 'link'"
   >
     <svg class="btn-icon__svg">
-      <use :xlink:href="'/icons/sprite.svg#' + sprite"></use>
+      <use :xlink:href="'/icons/sprite.svg#' + sprite"/>
     </svg>
   </a>
-  <button class="btn-icon" :class="{ 'btn-icon--dark': isDark }" v-else>
+  <button v-else class="btn-icon" :class="{ 'btn-icon--dark': isDark }">
     <svg class="btn-icon__svg">
-      <use :xlink:href="'/icons/sprite.svg#' + sprite"></use>
+      <use :xlink:href="'/icons/sprite.svg#' + sprite"/>
     </svg>
   </button>
 </template>
 
 <script setup>
-const props = defineProps(["url", "sprite", "isDark", "mode"]);
+defineProps(["url", "sprite", "isDark", "mode"]);
 </script>
 
 <style lang="scss" scoped>

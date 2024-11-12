@@ -1,26 +1,27 @@
 <template>
   <div
+    ref="select"
     class="input-select"
     :class="[
       { 'input-select--opened': isOpened },
       { 'input-select--accordion': isAccordion },
     ]"
-    ref="select"
   >
-    <div class="input-select__head" ref="head">
+    <div ref="head" class="input-select__head">
       <div class="input-select__title">
         {{ selectedItem.label }}
       </div>
       <svg class="input-select__icon">
-        <use xlink:href="/icons/sprite.svg#arrow-pager"></use>
+        <use xlink:href="/icons/sprite.svg#arrow-pager"/>
       </svg>
     </div>
-    <div class="input-select__body" ref="body">
+    <div ref="body" class="input-select__body">
       <div class="input-select__inner">
         <ul class="input-select__list">
           <li
-            class="input-select__item"
             v-for="item of items"
+            :key="item.label"
+            class="input-select__item"
             @click="changeSelect(item)"
           >
             {{ item.label }}
@@ -32,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 const isOpened = ref(false);
 const props = defineProps({
   items: {
@@ -43,7 +44,7 @@ const props = defineProps({
   initialItem: {
     type: Object,
     required: false,
-    default: "",
+    default: ()=>{},
   },
   // логика выхода нижнего окна как у аккореона
   isAccordion: {

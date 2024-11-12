@@ -4,20 +4,20 @@
 			<div class="footer__body">
 				<div class="footer__left">
 					<NuxtLink to="/" class="footer__logo">
-						<img src="/icons/logo.svg" />
+						<img src="/icons/logo.svg" >
 					</NuxtLink>
 					<Button class="footer__btn" mode="button" name="secondary">Оставить заявку</Button>
 				</div>
-				<nav class="footer__nav" v-if="mainInfoStore.isReady">
+				<nav v-if="mainInfoStore.isReady" class="footer__nav">
 					<ul class="footer__nav-list">
-						<li class="footer__nav-item" v-for="navItem of mainInfoStore.main">
+						<li v-for="navItem of mainInfoStore.main" :key="navItem.url.href" class="footer__nav-item">
 							<NuxtLink :to="navItem.url.href" class="footer__nav-link">{{
 								navItem.title
 							}}</NuxtLink>
 						</li>
 					</ul>
 				</nav>
-				<div class="footer__info" v-if="mainInfoStore.isReady">
+				<div v-if="mainInfoStore.isReady" class="footer__info">
 					<a :href="'tel:' + mainInfoStore.info.phone" class="footer__phone">{{
 						mainInfoStore.info.phone
 					}}</a>
@@ -26,7 +26,7 @@
 					}}</a>
 					<address class="footer__address">{{ mainInfoStore.info.address }}</address>
 				</div>
-				<div class="footer__social" v-if="mainInfoStore.isReady">
+				<div v-if="mainInfoStore.isReady" class="footer__social">
 					<ButtonIcon sprite="telegram" mode="link" :url="mainInfoStore.info.telegram"/>
 					<ButtonIcon sprite="wa" mode="link" :url="mainInfoStore.info.whatsapp"/>
 				</div>
@@ -37,7 +37,7 @@
 				<a class="footer__webshop" href="">
 					Разработка сайта :
 					<svg class="footer__webshop-svg">
-						<use xlink:href="/icons/sprite.svg#webshop"></use>
+						<use xlink:href="/icons/sprite.svg#webshop"/>
 					</svg>
 				</a>
 			</div>
@@ -53,6 +53,7 @@ const mainInfoStore = useMainInfoStore()
 <style lang="scss">
 .footer {
 	border-top: 1px solid var(--stroke-tertiary);
+	background-color: var(--footer-bg);
 	&__body {
 		padding-top: 60px;
 		padding-bottom: 60px;

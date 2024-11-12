@@ -1,8 +1,8 @@
 <template>
     <Teleport to="body">
-      <Popup :state="props.state" @closePopup="closePopup">
+      <Popup :state="state" @close-popup="closePopup">
         <div class="popup__content">
-          <h3 class="popup__title thtile-h3"></h3>
+          <h3 class="popup__title thtile-h3"/>
 
         </div>
       </Popup>
@@ -10,9 +10,7 @@
   </template>
 
 <script setup>
-const { t } = useI18n();
-
-const props = defineProps(["state"]);
+defineProps(["state"]);
 const emits = defineEmits(["closePopup"]);
 
 function closePopup() {

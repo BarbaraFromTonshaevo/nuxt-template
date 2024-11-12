@@ -1,22 +1,22 @@
 <template>
-  <ul class="accordion" ref="accordion">
-    <li class="accordion__item" v-for="item of data" :key="item.title">
+  <ul ref="accordion" class="accordion">
+    <li v-for="item of data" :key="item.title" class="accordion__item">
       <button class="accordion__head" @click="toggleHead($event)">
         <div class="accordion__title">{{ item.title }}</div>
         <svg class="accordion__icon">
-          <use xlink:href="/icons/sprite.svg#plus"></use>
+          <use xlink:href="/icons/sprite.svg#plus"/>
         </svg>
       </button>
       <div class="accordion__body">
-        <div class="accordion__inner" v-html="item.body"></div>
+        <div class="accordion__inner" v-html="item.body"/>
       </div>
     </li>
   </ul>
 </template>
 
 <script setup>
-const props = defineProps(["data", "initial"]);
 import { ref, onMounted } from "vue";
+const props = defineProps(["data", "initial"]);
 const accordion = ref(null);
 
 onMounted(() => {

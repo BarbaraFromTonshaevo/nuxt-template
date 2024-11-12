@@ -1,14 +1,14 @@
 <template>
   <div class="input-radio">
-    <div class="input-radio__wrap" v-for="item of items">
+    <div v-for="item of items" :key="item.id" class="input-radio__wrap">
       <input
+        :id="item.id"
+        v-model="selectedValue"
         class="input-radio__input"
         type="radio"
         :name="name"
-        :id="item.id"
         :value="item.value"
-        v-model="selectedValue"
-      />
+      >
       <label class="input-radio__label" :for="item.id">{{ item.label }}</label>
     </div>
   </div>

@@ -3,51 +3,50 @@
 		<div class="header__body">
 			<div class="header__container container">
 				<NuxtLink to="/" class="header__logo">
-					<img src="/icons/logo.svg" class="header__logo-dark"/>
+					<img src="/icons/logo.svg" class="header__logo-dark">
 				</NuxtLink>
-				<nav class="header__nav" v-if="!isMobileOrTablet && mainInfoStore.isReady">
+				<nav v-if="!isMobileOrTablet && mainInfoStore.isReady" class="header__nav">
 					<ul class="header__nav-list">
-						<li class="header__nav-item" v-for="navItem of mainInfoStore.main">
+						<li v-for="navItem of mainInfoStore.main" :key="navItem.url.href" class="header__nav-item">
 							<NuxtLink :to="navItem.url.href" class="header__nav-link">{{
 								navItem.title
 							}}</NuxtLink>
 						</li>
 					</ul>
 				</nav>
-				<div class="header__info" v-if="mainInfoStore.isReady">
+				<div v-if="mainInfoStore.isReady" class="header__info">
 					<a :href="'tel:' + mainInfoStore.info.phone" class="header__phone"
 						>{{ mainInfoStore.info.phone }}
 						<svg class="header__phone-svg">
-							<use xlink:href="/icons/sprite.svg#phone"></use>
+							<use xlink:href="/icons/sprite.svg#phone"/>
 						</svg>
 					</a>
 					<div class="header__social">
-						<ButtonIcon sprite="telegram" :isDark="isTransparent? true: false" mode="link" :url="mainInfoStore.info.telegram"/>
-						<ButtonIcon sprite="wa" :isDark="isTransparent? true: false" mode="link" :url="mainInfoStore.info.whatsapp"/>
+						<ButtonIcon sprite="telegram" :is-dark="isTransparent? true: false" mode="link" :url="mainInfoStore.info.telegram"/>
+						<ButtonIcon sprite="wa" :is-dark="isTransparent? true: false" mode="link" :url="mainInfoStore.info.whatsapp"/>
 					</div>
-					<Button mode="button" name="primary">Оставить заявку</Button>
-					<!-- <Button v-if="!isMobileOrTablet" class="footer__btn" mode="button" name="primary">Оставить заявку</Button> -->
-
+					<Button v-if="!isMobileOrTablet" mode="button" name="primary">Оставить заявку</Button>
 					<ButtonBurger
 						v-if="isMobileOrTablet"
-						:isClosed="isMenuActive"
-						:isLight="isTransparent? true: false"
+						:is-closed="isMenuActive"
+						:is-light="isTransparent? true: false"
 						@click="isMenuActive = !isMenuActive"
 					/>
 				</div>
 			</div>
 		</div>
 		<div
-			class="header__menu"
 			v-if="isMobileOrTablet && mainInfoStore.isReady"
+			class="header__menu"
 			:class="{ 'header__menu--opened': isMenuActive }"
 		>
 			<div class="header__menu-container container">
 				<nav class="header__menu-nav">
 					<ul class="header__menu-nav-list">
 						<li
-							class="header__menu-nav-item"
 							v-for="navItem of mainInfoStore.main"
+							:key="navItem.url.href"
+							class="header__menu-nav-item"
 						>
 							<NuxtLink :to="navItem.url.href" class="header__nav-link">{{
 								navItem.title
@@ -68,12 +67,7 @@
 						{{ mainInfoStore.info.address }}
 					</address>
 				</div>
-				<ButtonPrimary
-					:mode="'btn'"
-					:text="'Оставить заявку'"
-					:isLarge="true"
-					class="header__menu-btn"
-				/>
+				<Button class="header__menu-btn" mode="button" name="primary" size="large">Оставить заявку</Button>
 			</div>
 		</div>
 	</header>

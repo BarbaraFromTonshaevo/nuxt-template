@@ -1,15 +1,15 @@
 <template>
 	<button
 		class="burger"
-		:class="{ 'burger--closed': props.isClosed }, {'burger--light': props.isLight}"
+		:class="[{ 'burger--closed': isClosed }, {'burger--light': isLight}]"
 		aria-label="Открыть меню"
 	>
-		<span class="burger__line"></span>
+		<span class="burger__line"/>
 	</button>
 </template>
 
 <script setup>
-const props = defineProps(['isClosed', 'isLight'])
+defineProps(['isClosed', 'isLight'])
 </script>
 
 <style lang="scss" scoped>

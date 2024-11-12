@@ -13,6 +13,7 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "@nuxt/eslint": "^0.5.3",
+    "@nuxt/image": "^1.8.1",
     "@nuxtjs/device": "^3.2.0",
     "@pinia/nuxt": "^0.5.4",
     "gsap": "^3.12.5",

@@ -1,20 +1,28 @@
 <template>
-  <div class="slider__wrap" ref="wrap">
+  <div ref="wrap" class="slider__wrap">
     <SliderTop :title="title" />
-    <div class="swiper slider" ref="slider">
+    <div ref="slider" class="swiper slider">
       <div class="swiper-wrapper slider__wrapper">
         <div
-          class="swiper-slide slider__slide"
           v-for="(slide, index) in slides"
           :key="'slide' + index"
+          class="swiper-slide slider__slide"
         >
+        <a
+            v-if="isLocalImages"
+            :href="slide.raw"
+            data-fancybox="gallery"
+            class="slider-gallery__fancybox style-picture-img"
+          >
+            <NuxtPicture format="jpg,webpjpeg,png" :src="slide"/>
+          </a>
           <a
-            :href="slide"
+            v-else
+            :href="slide.raw"
             data-fancybox="gallery"
             class="slider__fancybox style-picture-img"
-          >
-            <img :src="slide" />
-          </a>
+            v-html="slide.markup"
+          />
         </div>
       </div>
     </div>
@@ -29,7 +37,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "swiper/css";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
-const props = defineProps({
+defineProps({
   slides: {
     type: Array,
     required: true,
@@ -39,6 +47,11 @@ const props = defineProps({
     type: String,
     required: false,
     default: "Фотогалерея",
+  },
+  isLocalImages: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 });
 

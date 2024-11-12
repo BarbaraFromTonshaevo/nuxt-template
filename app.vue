@@ -1,21 +1,30 @@
 <template>
-    <NuxtLayout :name="layout">
-      <NuxtRouteAnnouncer />
+  <NuxtLayout :name="layout">
+    <NuxtLoadingIndicator />
+    <NuxtRouteAnnouncer />
+    <NuxtErrorBoundary>
       <div class="page-content">
         <NuxtPage />
       </div>
-    </NuxtLayout>
+      <template #error="{ error }">
+        <div class="container">
+          <h1 class="title-h1">Ошибка</h1>
+          <p>
+            <code>{{ error }}</code>
+          </p>
+        </div>
+      </template>
+    </NuxtErrorBoundary>
+  </NuxtLayout>
 </template>
-
 
 <script setup>
 const device = useDevice();
-const layout = ref('');
+const layout = ref("");
 
 onMounted(() => {
-  layout.value = device.isDesktop === true ? 'scroller' : 'default';
-})
-
+  layout.value = device.isDesktop === true ? "scroller" : "default";
+});
 </script>
 
 <style lang="scss">

@@ -5,7 +5,7 @@
     :class="computedClasses"
     v-bind="$attrs"
   >
-    <slot></slot>
+    <slot/>
   </NuxtLink>
   <a
     v-else-if="props.mode === 'link'"
@@ -13,7 +13,7 @@
     :class="computedClasses"
     v-bind="$attrs"
   >
-    <slot></slot>
+    <slot/>
   </a>
   <button
     v-else
@@ -22,12 +22,12 @@
     :disabled="props.isDisabled ? true : false"
     v-bind="$attrs"
   >
-    <slot></slot>
+    <slot/>
   </button>
 </template>
 
 <script setup>
-import { computed, defineProps } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   mode: {

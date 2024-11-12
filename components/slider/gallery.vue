@@ -1,19 +1,28 @@
 <template>
-  <div class="slider-gallery__wrap" ref="wrap">
+  <div ref="wrap" class="slider-gallery__wrap">
     <SliderTop :title="title" />
-    <div class="slider-gallery swiper" ref="slider">
+    <div ref="slider" class="slider-gallery swiper">
       <div class="swiper-wrapper">
         <div
-          class="slider-gallery__slide swiper-slide"
           v-for="(slide, index) in slides"
           :key="'slide' + index"
+          class="slider-gallery__slide swiper-slide"
         >
           <a
+            v-if="isLocalImages"
+            :href="slide.raw"
+            data-fancybox="gallery"
+            class="slider-gallery__fancybox style-picture-img"
+          >
+            <NuxtPicture format="jpg,webpjpeg,png" :src="slide"/>
+          </a>
+          <a
+            v-else
             :href="slide.raw"
             data-fancybox="gallery"
             class="slider-gallery__fancybox style-picture-img"
             v-html="slide.markup"
-          ></a>
+          />
         </div>
       </div>
     </div>
@@ -29,7 +38,7 @@ import "swiper/css";
 
 import { ref, onMounted } from "vue";
 
-const props = defineProps({
+defineProps({
   slides: {
     type: Array,
     required: true,
@@ -39,6 +48,11 @@ const props = defineProps({
     type: String,
     required: false,
     default: "Галерея",
+  },
+  isLocalImages: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 });
 
@@ -51,20 +65,20 @@ const slider = ref(null),
 function updateSliderWidth() {
   if (slider.value) {
     slider.value.style.width = "0px";
-    setTimeout(()=>{
+    setTimeout(() => {
       slider.value.style.width = wrap.value.clientWidth + "px";
-    }, 0)
+    }, 0);
     // здесь можно добавить любой дополнительный код для пересчета ширины слайдера
   }
 }
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateSliderWidth);
+  window.removeEventListener("resize", updateSliderWidth);
 });
 
 onMounted(() => {
   // на тот случай, если слайдер находится внутри flex и grid
-  window.addEventListener('resize', updateSliderWidth);
+  window.addEventListener("resize", updateSliderWidth);
   slider.value.style.width = wrap.value.clientWidth + "px";
   prevBtn.value = wrap.value.querySelector(".slider__btn--prev");
   nextBtn.value = wrap.value.querySelector(".slider__btn--next");

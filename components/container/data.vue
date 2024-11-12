@@ -1,10 +1,10 @@
 <template>
   <main class="main" :class="{ front: isFront }">
     <div v-if="status === 'pending' || status === 'fetching'">
-      <div class="loader"></div>
+      <div class="loader"/>
     </div>
     <div v-else-if="status === 'success'">
-      <slot></slot>
+      <slot/>
     </div>
     <div v-else>
       <div class="container">
