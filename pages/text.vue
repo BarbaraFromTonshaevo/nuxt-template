@@ -111,7 +111,7 @@
           style="width: 527px"
           class="align-left"
           alt=""
-        >
+        />
         <p>
           Оборудование для промышленной маркировки предназначено для нанесения
           идентификационных данных и информации о товаре в условиях
@@ -146,7 +146,7 @@
           style="width: 336px"
           class="align-right"
           alt=""
-        >
+        />
         <p>
           Оборудование для промышленной маркировки предназначено для нанесения
           идентификационных данных и информации о товаре в условиях
@@ -189,7 +189,7 @@
         </p>
       </ContainerContent>
       <div class="container">
-        <Slider :slides="slides" :is-local-images="true"/>
+        <Slider :slides="slides" :is-local-images="true" />
       </div>
     </section>
   </main>
@@ -214,8 +214,9 @@ onMounted(() => {
     table.value.parentNode.insertBefore(tableWrap, table.value);
     tableWrap.appendChild(table.value);
   }
-  console.log("hehe");
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+</style>

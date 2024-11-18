@@ -2,8 +2,8 @@
   <div class="slider__top">
     <h3 v-if="title" class="slider__title" :class="`title-${titleSize}`">{{ title }}</h3>
     <div class="slider__control">
-      <ButtonIcon class="slider__btn slider__btn--prev" sprite="arrow" />
-      <ButtonIcon class="slider__btn slider__btn--next" sprite="arrow" />
+      <ButtonIcon class="slider__btn slider__btn--prev" sprite="arrow" mode="button"/>
+      <ButtonIcon class="slider__btn slider__btn--next" sprite="arrow" mode="button"/>
     </div>
   </div>
 </template>

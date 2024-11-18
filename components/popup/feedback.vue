@@ -10,7 +10,12 @@
   </template>
 
 <script setup>
-defineProps(["state"]);
+defineProps({
+  state: {
+    type: Boolean,
+    default: flase,
+  },
+});
 const emits = defineEmits(["closePopup"]);
 
 function closePopup() {

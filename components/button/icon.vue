@@ -1,23 +1,71 @@
 <template>
-  <a
-    v-if="mode === 'link'"
-    :href="url"
+  <NuxtLink
+    v-if="mode === 'nuxt-link'"
+    :to="link"
     class="btn-icon"
-    :class="{ 'btn-icon--dark': isDark }"
+    v-bind="$attrs"
   >
     <svg class="btn-icon__svg">
-      <use :xlink:href="'/icons/sprite.svg#' + sprite"/>
+      <use :xlink:href="'/icons/sprite.svg#' + sprite" />
+    </svg>
+  </NuxtLink>
+  <a
+    v-else-if="mode === 'link'"
+    :href="link"
+    class="btn-icon"
+    v-bind="$attrs"
+  >
+    <svg class="btn-icon__svg">
+      <use :xlink:href="'/icons/sprite.svg#' + sprite" />
     </svg>
   </a>
-  <button v-else class="btn-icon" :class="{ 'btn-icon--dark': isDark }">
+  <button
+    v-else
+    :type="type"
+    class="btn-icon"
+    :disabled="isDisabled ? true : false"
+    v-bind="$attrs"
+  >
     <svg class="btn-icon__svg">
-      <use :xlink:href="'/icons/sprite.svg#' + sprite"/>
+      <use :xlink:href="'/icons/sprite.svg#' + sprite" />
     </svg>
   </button>
 </template>
 
 <script setup>
-defineProps(["url", "sprite", "isDark", "mode"]);
+defineProps({
+  mode: {
+    type: String,
+    required: true,
+    default: "button",
+    validator: (value) => ["button", "a", "nuxt-link"].includes(value),
+  },
+  link: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  sprite: {
+    type: String,
+    required: true,
+    default: "",
+  },
+  isDark: {
+    type: Boolean,
+    required: false,
+    defult: false,
+  },
+  type: {
+    type: String,
+    required: false,
+    default: "button",
+  },
+  isDisabled: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+});
 </script>
 
 <style lang="scss" scoped>

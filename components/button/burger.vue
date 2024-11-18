@@ -9,7 +9,16 @@
 </template>
 
 <script setup>
-defineProps(['isClosed', 'isLight'])
+defineProps({
+	isClosed: {
+		type: Boolean,
+		default: false
+	},
+	isLight: {
+		type: Boolean,
+		default: false,
+	}
+})
 </script>
 
 <style lang="scss" scoped>

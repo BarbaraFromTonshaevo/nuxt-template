@@ -6,7 +6,7 @@
 					<NuxtLink to="/" class="footer__logo">
 						<img src="/icons/logo.svg" >
 					</NuxtLink>
-					<Button class="footer__btn" mode="button" name="secondary">Оставить заявку</Button>
+					<ButtonBase class="footer__btn" mode="button" name="secondary">Оставить заявку</ButtonBase>
 				</div>
 				<nav v-if="mainInfoStore.isReady" class="footer__nav">
 					<ul class="footer__nav-list">
@@ -27,8 +27,8 @@
 					<address class="footer__address">{{ mainInfoStore.info.address }}</address>
 				</div>
 				<div v-if="mainInfoStore.isReady" class="footer__social">
-					<ButtonIcon sprite="telegram" mode="link" :url="mainInfoStore.info.telegram"/>
-					<ButtonIcon sprite="wa" mode="link" :url="mainInfoStore.info.whatsapp"/>
+					<ButtonIcon sprite="telegram" mode="a" :link="mainInfoStore.info.telegram"/>
+					<ButtonIcon sprite="wa" mode="a" :link="mainInfoStore.info.whatsapp"/>
 				</div>
 			</div>
 			<div class="footer__bottom">

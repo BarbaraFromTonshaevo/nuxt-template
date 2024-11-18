@@ -4,11 +4,11 @@
       <button class="accordion__head" @click="toggleHead($event)">
         <div class="accordion__title">{{ item.title }}</div>
         <svg class="accordion__icon">
-          <use xlink:href="/icons/sprite.svg#plus"/>
+          <use xlink:href="/icons/sprite.svg#plus" />
         </svg>
       </button>
       <div class="accordion__body">
-        <div class="accordion__inner" v-html="item.body"/>
+        <div class="accordion__inner" v-html="item.body" />
       </div>
     </li>
   </ul>
@@ -16,7 +16,22 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-const props = defineProps(["data", "initial"]);
+const props = defineProps({
+  data: {
+    type: Array, // указываем, что это массив
+    required: true,
+    validator: function (value) {
+      return value.every((item) => {
+        return typeof item.title === "string" && typeof item.body === "string";
+      });
+    },
+  },
+  initial: {
+    type: Number,
+    required: false,
+    default: undefined,
+  },
+});
 const accordion = ref(null);
 
 onMounted(() => {

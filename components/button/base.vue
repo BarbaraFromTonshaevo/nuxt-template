@@ -1,15 +1,15 @@
 <template>
   <NuxtLink
-    v-if="props.mode === 'nuxt-link'"
-    :to="props.link"
+    v-if="mode === 'nuxt-link'"
+    :to="link"
     :class="computedClasses"
     v-bind="$attrs"
   >
     <slot/>
   </NuxtLink>
   <a
-    v-else-if="props.mode === 'link'"
-    :href="props.link"
+    v-else-if="mode === 'link'"
+    :href="link"
     :class="computedClasses"
     v-bind="$attrs"
   >
@@ -19,7 +19,7 @@
     v-else
     :type="type"
     :class="computedClasses"
-    :disabled="props.isDisabled ? true : false"
+    :disabled="isDisabled ? true : false"
     v-bind="$attrs"
   >
     <slot/>

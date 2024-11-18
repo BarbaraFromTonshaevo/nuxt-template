@@ -20,7 +20,17 @@
 </template>
 
 <script setup>
-defineProps(["breadcrumbs"]);
+defineProps({
+  data: {
+    type: Array, // указываем, что это массив
+    required: true,
+    validator: function (value) {
+      return value.every((item) => {
+        return typeof item.url === "string" && typeof item.text === "string";
+      });
+    },
+  },
+});
 </script>
 
 <style lang="scss">

@@ -1,10 +1,10 @@
 <template>
   <main class="main" :class="{ front: isFront }">
     <div v-if="status === 'pending' || status === 'fetching'">
-      <div class="loader"/>
+      <div class="loader" />
     </div>
     <div v-else-if="status === 'success'">
-      <slot/>
+      <slot />
     </div>
     <div v-else>
       <div class="container">
@@ -17,7 +17,20 @@
 </template>
 
 <script setup>
-const props = defineProps(["status", "error", "isFront"]);
+const props = defineProps({
+  status: {
+    type: String,
+    validator: (value) => ["idle", "pending", "success", "error"].includes(value),
+    default: 'success'
+  },
+  error: {
+    type: (Object || Null),
+    default: null
+  },
+  isFront: {
+    type: Boolean,
+  },
+});
 if (props.error) {
   console.error("Error fetching services:", props.error);
 }

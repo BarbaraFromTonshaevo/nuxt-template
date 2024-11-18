@@ -80,7 +80,7 @@ import { computed } from "vue";
 const props = defineProps({
   pagination: {
     type: Object,
-    defult: () => {},
+    default: () => {},
   },
 });
 const emits = defineEmits(["changePage"]);
